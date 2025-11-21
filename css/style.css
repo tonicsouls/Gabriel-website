@@ -1,0 +1,189 @@
+/* Custom CSS for Gabriel the Brave */
+
+#gallery .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+#gallery .grid > div {
+    break-inside: avoid;
+}
+
+#gallery .grid > div > img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease-in-out;
+}
+
+#features {
+
+    background-color: var(--background-light);
+
+    color: var(--dark-blue);
+
+}
+
+
+
+#author {
+
+    background-color: var(--white);
+
+    color: var(--dark-blue);
+
+}
+
+
+
+#audiobook, #reviews, #press-kit {
+
+    padding: 80px 20px;
+
+    text-align: center;
+
+}
+
+
+
+#audiobook {
+
+    background-color: var(--dark-blue);
+
+    color: var(--white);
+
+}
+
+
+
+#reviews {
+
+    background-color: var(--background-light);
+
+    color: var(--dark-blue);
+
+}
+
+
+
+#press-kit {
+
+    background-color: var(--white);
+
+    color: var(--dark-blue);
+
+}
+
+
+
+
+
+
+
+
+
+#amazon {
+
+
+
+    background-color: var(--background-light);
+
+
+
+    color: var(--dark-blue);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+#product {
+
+
+
+
+
+
+
+    background-color: var(--white);
+
+
+
+
+
+
+
+    color: var(--dark-blue);
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#contact {
+
+
+
+
+
+
+
+    background-color: var(--background-light);
+
+
+
+
+
+
+
+    color: var(--dark-blue);
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+

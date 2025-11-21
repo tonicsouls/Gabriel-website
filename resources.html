@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Resources - Gabriel the Brave</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght @0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b6cee",
+                        "background-light": "#FDFBF5",
+                        "background-dark": "#101622",
+                        "celestial-blue": "#2C3E50",
+                        "earthy-tone": "#A89B8C",
+                    },
+                    fontFamily: {
+                        "display": ["Noto Serif", "serif"]
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            font-family: 'Noto Serif', serif;
+            background-color: #FDFBF5;
+            color: #2C3E50;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .dark body {
+            background-color: #101622;
+            color: #FDFBF5;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark">
+<div class="relative flex h-auto min-h-screen w-full flex-col font-display group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<header
+                class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-primary/20 dark:border-b-primary/30 px-4 sm:px-10 lg:px-20 py-3 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+                <div class="flex items-center gap-4 text-celestial-blue dark:text-background-light">
+                    <a href="index.html" class="flex items-center gap-4 hover:opacity-80 transition-opacity">
+                        <div class="size-6 text-primary">
+                            <span class="material-symbols-outlined !text-3xl">auto_stories</span>
+                        </div>
+                        <h2 class="text-xl font-bold leading-tight tracking-[-0.015em]">Gabriel the Brave</h2>
+                    </a>
+                </div>
+                <div class="hidden md:flex flex-1 justify-end gap-8">
+                    <div class="flex items-center gap-9">
+                        <a class="text-celestial-blue dark:text-background-light text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary"
+                            href="index.html">Home</a>
+                        <a class="text-celestial-blue dark:text-background-light text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary"
+                            href="news.html">Press</a>
+                        <a class="text-celestial-blue dark:text-background-light text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary"
+                            href="activities.html">Activities</a>
+                        <a class="text-celestial-blue dark:text-background-light text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary"
+                            href="about.html">About</a>
+                    </div>
+                    <a href="product.html"
+                        class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:opacity-90">
+                        <span class="truncate">Buy the Book</span>
+                    </a>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-celestial-blue dark:text-background-light"
+                        onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                        <span class="material-symbols-outlined">menu</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu"
+                class="hidden md:hidden fixed inset-0 z-40 bg-background-light dark:bg-background-dark pt-20 px-4">
+                <div class="flex flex-col gap-4">
+                    <a class="text-xl font-medium" href="index.html">Home</a>
+                    <a class="text-xl font-medium" href="news.html">Press</a>
+                    <a class="text-xl font-medium" href="activities.html">Activities</a>
+                    <a class="text-xl font-medium" href="about.html">About</a>
+                    <a href="product.html"
+                        class="btn btn-primary w-full text-center py-3 rounded-lg bg-primary text-white">Buy the
+                        Book</a>
+                </div>
+            </div>
+<main class="flex flex-1 justify-center py-12 bg-background-light dark:bg-background-dark">
+    <div class="layout-content-container flex flex-col max-w-6xl flex-1 px-4">
+        <div class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-bold text-celestial-blue dark:text-white mb-4">Ministry Resources</h1>
+            <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                Tools and materials to help you share the message of "Gabriel the Brave" with your family, church, and community.
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Card 1: Press Releases -->
+            <div class="group bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 dark:border-gray-700 flex flex-col">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="assets/images/press/Gabriel-3D-tilted-4web.jpg" alt="Press Kit" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors"></div>
+                </div>
+                <div class="p-8 flex flex-col items-center text-center flex-grow">
+                    <h3 class="text-2xl font-bold mb-3 text-celestial-blue dark:text-white">Press Releases</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-8 flex-grow">
+                        Latest news, announcements, and media kits.
+                    </p>
+                    <a href="news.html" class="w-full py-3 px-4 bg-white border-2 border-primary text-primary font-bold rounded-lg hover:bg-primary hover:text-white transition-colors">
+                        View Press Room
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 2: Sunday School Content -->
+            <div class="group bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 dark:border-gray-700 flex flex-col">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="assets/images/didt.png" alt="Coloring Pages" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors"></div>
+                </div>
+                <div class="p-8 flex flex-col items-center text-center flex-grow">
+                    <h3 class="text-2xl font-bold mb-3 text-celestial-blue dark:text-white">Sunday School Content</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-8 flex-grow">
+                        Downloadable resources, coloring sheets, and guides.
+                    </p>
+                    <a href="activities.html" class="w-full py-3 px-4 bg-white border-2 border-primary text-primary font-bold rounded-lg hover:bg-primary hover:text-white transition-colors">
+                        Visit Gallery
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 3: Curriculum Builder -->
+            <div class="group bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 dark:border-gray-700 flex flex-col">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="assets/images/press/Gabriel-3D-open-wood-4web.jpg" alt="Curriculum Builder" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors"></div>
+                </div>
+                <div class="p-8 flex flex-col items-center text-center flex-grow">
+                    <h3 class="text-2xl font-bold mb-3 text-celestial-blue dark:text-white">Curriculum Builder</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-8 flex-grow">
+                        Mix and match lessons to create your custom plan.
+                    </p>
+                    <a href="curriculum_builder.html" class="w-full py-3 px-4 bg-primary text-white font-bold rounded-lg hover:bg-primary/90 transition-colors shadow-md">
+                        Build Lesson Plan
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<!-- Footer -->
+            <footer class="bg-celestial-blue dark:bg-gray-900 text-background-light mt-16">
+                <div class="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                        <div class="col-span-2 md:col-span-1">
+                            <div class="flex items-center gap-3">
+                                <div class="size-6 text-primary">
+                                    <span class="material-symbols-outlined !text-3xl">auto_stories</span>
+                                </div>
+                                <h2 class="text-xl font-bold leading-tight">Gabriel the Brave</h2>
+                            </div>
+                            <div class="mt-4">
+                                <img src="assets/images/logo_tymbr_wht.png" alt="Tymbr Books"
+                                    style="height: 30px; opacity: 0.8;">
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-sm font-semibold tracking-wider uppercase text-gray-300">Navigation</h3>
+                            <ul class="mt-4 space-y-2">
+                                <li><a class="text-base text-gray-400 hover:text-white" href="index.html">Home</a></li>
+                                <li><a class="text-base text-gray-400 hover:text-white" href="about.html">About</a></li>
+                                <li><a class="text-base text-gray-400 hover:text-white"
+                                        href="resources.html">Resources</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-sm font-semibold tracking-wider uppercase text-gray-300">Connect</h3>
+                            <ul class="mt-4 space-y-2">
+                                <li><a class="text-base text-gray-400 hover:text-white" href="product.html">Buy the
+                                        Book</a></li>
+                                <li><a class="text-base text-gray-400 hover:text-white" href="contact.html">Contact
+                                        Us</a></li>
+                                <li><a class="text-base text-gray-400 hover:text-white"
+                                        href="mailto:Carteramon@gabrielthebrave.com">Carteramon@gabrielthebrave.com</a>
+                                </li>
+                                <li><span class="text-base text-gray-400">(817) 876-9627</span></li>
+                                <li><span class="text-base text-gray-400">Dallas-Fort Worth, TX</span></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-sm font-semibold tracking-wider uppercase text-gray-300">Follow Us</h3>
+                            <div class="flex mt-4 space-x-4">
+                                <a class="text-gray-400 hover:text-white" href="#"><span class="sr-only">Facebook</span>
+                                    F </a>
+                                <a class="text-gray-400 hover:text-white" href="#"><span
+                                        class="sr-only">Instagram</span> I </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-12 border-t border-gray-700 pt-8 text-center text-sm text-gray-400">
+                        <p>&copy; <span id="year">2025</span> Gabriel the Brave. All rights reserved.</p>
+                    </div>
+                </div>
+            </footer>
+            <script>
+                document.getElementById('year').textContent = new Date().getFullYear();
+            </script>
+</div>
+</div>
+</body></html>

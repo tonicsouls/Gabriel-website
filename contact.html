@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contact Us - Gabriel the Brave</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b6cee",
+                        "background-light": "#f8f9fc",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Noto Serif", "serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<div class="px-4 sm:px-8 md:px-12 lg:px-20 xl:px-40 flex flex-1 justify-center py-5">
+<div class="layout-content-container flex flex-col max-w-[1200px] flex-1">
+<header
+                class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-primary/20 dark:border-b-primary/30 px-4 sm:px-10 lg:px-20 py-3 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+                <div class="flex items-center gap-4 text-celestial-blue dark:text-background-light">
+                    <a href="index.html" class="flex items-center gap-4 hover:opacity-80 transition-opacity">
+                        <div class="size-6 text-primary">
+                            <span class="material-symbols-outlined !text-3xl">auto_stories</span>
+                        </div>
+                        <h2 class="text-xl font-bold leading-tight tracking-[-0.015em]">Gabriel the Brave</h2>
+                    </a>
+                </div>
+                <div class="hidden md:flex flex-1 justify-end gap-8">
+                    <div class="flex items-center gap-9">
+                        <a class="text-celestial-blue dark:text-background-light text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary"
+                            href="index.html">Home</a>
+                        <a class="text-celestial-blue dark:text-background-light text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary"
+                            href="news.html">Press</a>
+                        <a class="text-celestial-blue dark:text-background-light text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary"
+                            href="activities.html">Activities</a>
+                        <a class="text-celestial-blue dark:text-background-light text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary"
+                            href="about.html">About</a>
+                    </div>
+                    <a href="product.html"
+                        class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:opacity-90">
+                        <span class="truncate">Buy the Book</span>
+                    </a>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-celestial-blue dark:text-background-light"
+                        onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                        <span class="material-symbols-outlined">menu</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu"
+                class="hidden md:hidden fixed inset-0 z-40 bg-background-light dark:bg-background-dark pt-20 px-4">
+                <div class="flex flex-col gap-4">
+                    <a class="text-xl font-medium" href="index.html">Home</a>
+                    <a class="text-xl font-medium" href="news.html">Press</a>
+                    <a class="text-xl font-medium" href="activities.html">Activities</a>
+                    <a class="text-xl font-medium" href="about.html">About</a>
+                    <a href="product.html"
+                        class="btn btn-primary w-full text-center py-3 rounded-lg bg-primary text-white">Buy the
+                        Book</a>
+                </div>
+            </div>
+<main class="flex-grow py-12 md:py-20">
+<div class="flex flex-wrap justify-between gap-4 p-4">
+<div class="flex flex-col gap-3 max-w-2xl mx-auto text-center">
+<h1 class="text-[#0d121b] dark:text-white text-4xl md:text-5xl font-black leading-tight tracking-[-0.033em]">Connect With Us</h1>
+<p class="text-gray-600 dark:text-gray-400 text-lg font-normal leading-relaxed">
+                                We're here for you. Whether you have a question about the book, a prayer request, or want to share your story, we would love to hear from you.
+                            </p>
+</div>
+</div>
+<div class="mt-12 md:mt-16 grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-16 items-start px-4">
+<div class="lg:col-span-3 bg-white dark:bg-background-dark rounded-xl shadow-sm border border-gray-200 dark:border-gray-800 p-6 md:p-8">
+<h3 class="text-2xl font-bold text-[#0d121b] dark:text-white mb-6">Send a Message</h3>
+<form class="space-y-6">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<label class="flex flex-col min-w-40 flex-1">
+<p class="text-[#0d121b] dark:text-gray-300 text-sm font-medium leading-normal pb-2">Full Name</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d121b] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-gray-700 bg-background-light dark:bg-gray-900 focus:border-primary h-12 placeholder:text-gray-400 dark:placeholder:text-gray-500 px-4 text-base font-normal leading-normal" placeholder="Enter your full name" type="text" value=""/>
+</label>
+<label class="flex flex-col min-w-40 flex-1">
+<p class="text-[#0d121b] dark:text-gray-300 text-sm font-medium leading-normal pb-2">Email Address</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d121b] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-gray-700 bg-background-light dark:bg-gray-900 focus:border-primary h-12 placeholder:text-gray-400 dark:placeholder:text-gray-500 px-4 text-base font-normal leading-normal" placeholder="Enter your email address" type="email" value=""/>
+</label>
+</div>
+<label class="flex flex-col min-w-40 flex-1">
+<p class="text-[#0d121b] dark:text-gray-300 text-sm font-medium leading-normal pb-2">Subject</p>
+<select class="form-select flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d121b] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-gray-700 bg-background-light dark:bg-gray-900 focus:border-primary h-12 placeholder:text-gray-400 dark:placeholder:text-gray-500 px-4 text-base font-normal leading-normal appearance-none bg-no-repeat bg-right" style="background-image: url(&quot;data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e&quot;); background-position: right 0.5rem center; background-size: 1.5em 1.5em;">
+<option>General Inquiry</option>
+<option>Book Question</option>
+<option>Prayer Request</option>
+<option>Speaking Engagement</option>
+</select>
+</label>
+<label class="flex flex-col min-w-40 flex-1">
+<p class="text-[#0d121b] dark:text-gray-300 text-sm font-medium leading-normal pb-2">Your Message</p>
+<textarea class="form-textarea flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d121b] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-gray-700 bg-background-light dark:bg-gray-900 focus:border-primary min-h-36 placeholder:text-gray-400 dark:placeholder:text-gray-500 p-4 text-base font-normal leading-normal" placeholder="Write your message here..."></textarea>
+</label>
+<div class="flex items-start">
+<div class="flex h-5 items-center">
+<input class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary dark:bg-gray-700 dark:border-gray-600" id="privacy" name="privacy" type="checkbox"/>
+</div>
+<div class="ml-3 text-sm">
+<label class="text-gray-500 dark:text-gray-400" for="privacy">By sending this message, you agree to our <a class="font-medium text-primary hover:underline" href="#">Privacy Policy</a>.</label>
+</div>
+</div>
+<button class="flex w-full sm:w-auto min-w-[120px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors" type="submit">
+<span class="truncate">Send Message</span>
+</button>
+</form>
+</div>
+<div class="lg:col-span-2 space-y-8">
+<div class="space-y-4">
+<h3 class="text-xl font-bold text-[#0d121b] dark:text-white">Other Ways to Reach Us</h3>
+<div class="space-y-3">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-2xl">mail</span>
+<a class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-white" href="mailto:Carteramon@gabrielthebrave.com">Carteramon@gabrielthebrave.com</a>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-2xl mt-1">location_on</span>
+<p class="text-gray-600 dark:text-gray-400">Dallas-Fort Worth, TX</p>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<h3 class="text-xl font-bold text-[#0d121b] dark:text-white">Join Our Community</h3>
+<p class="text-gray-600 dark:text-gray-400">Follow our journey and connect with other families on social media.</p>
+<div class="flex items-center gap-4">
+<a aria-label="Facebook" class="text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white" href="#">
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24"><path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path></svg>
+</a>
+<a aria-label="Instagram" class="text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white" href="#">
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24"><path clip-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.012-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 016.345 2.525c.636-.247 1.363-.416 2.427-.465C9.793 2.013 10.147 2 12.315 2zm0 1.62c-2.403 0-2.71.01-3.66.058-1.002.045-1.503.2-1.892.368a3.282 3.282 0 00-1.18 1.18c-.168.389-.323.89-.368 1.892-.048.95-.058 1.257-.058 3.66s.01 2.71.058 3.66c.045 1.002.2 1.503.368 1.892a3.282 3.282 0 001.18 1.18c.389.168.89.323 1.892.368.95.048 1.257.058 3.66.058s2.71-.01 3.66-.058c1.002-.045 1.503-.2 1.892-.368a3.282 3.282 0 001.18-1.18c.168-.389.323-.89.368-1.892.048-.95.058-1.257.058-3.66s-.01-2.71-.058-3.66c-.045-1.002-.2-1.503-.368-1.892a3.282 3.282 0 00-1.18-1.18c-.389-.168-.89-.323-1.892-.368-.95-.048-1.257-.058-3.66-.058zM12 8.25a3.75 3.75 0 100 7.5 3.75 3.75 0 000-7.5zM12 14a2 2 0 110-4 2 2 0 010 4zm6.406-7.188a.938.938 0 100-1.875.938.938 0 000 1.875z" fill-rule="evenodd"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+            <footer class="bg-celestial-blue dark:bg-gray-900 text-background-light mt-16">
+                <div class="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                        <div class="col-span-2 md:col-span-1">
+                            <div class="flex items-center gap-3">
+                                <div class="size-6 text-primary">
+                                    <span class="material-symbols-outlined !text-3xl">auto_stories</span>
+                                </div>
+                                <h2 class="text-xl font-bold leading-tight">Gabriel the Brave</h2>
+                            </div>
+                            <div class="mt-4">
+                                <img src="assets/images/logo_tymbr_wht.png" alt="Tymbr Books"
+                                    style="height: 30px; opacity: 0.8;">
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-sm font-semibold tracking-wider uppercase text-gray-300">Navigation</h3>
+                            <ul class="mt-4 space-y-2">
+                                <li><a class="text-base text-gray-400 hover:text-white" href="index.html">Home</a></li>
+                                <li><a class="text-base text-gray-400 hover:text-white" href="about.html">About</a></li>
+                                <li><a class="text-base text-gray-400 hover:text-white"
+                                        href="resources.html">Resources</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-sm font-semibold tracking-wider uppercase text-gray-300">Connect</h3>
+                            <ul class="mt-4 space-y-2">
+                                <li><a class="text-base text-gray-400 hover:text-white" href="product.html">Buy the
+                                        Book</a></li>
+                                <li><a class="text-base text-gray-400 hover:text-white" href="contact.html">Contact
+                                        Us</a></li>
+                                <li><a class="text-base text-gray-400 hover:text-white"
+                                        href="mailto:Carteramon@gabrielthebrave.com">Carteramon@gabrielthebrave.com</a>
+                                </li>
+                                <li><span class="text-base text-gray-400">(817) 876-9627</span></li>
+                                <li><span class="text-base text-gray-400">Dallas-Fort Worth, TX</span></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-sm font-semibold tracking-wider uppercase text-gray-300">Follow Us</h3>
+                            <div class="flex mt-4 space-x-4">
+                                <a class="text-gray-400 hover:text-white" href="#"><span class="sr-only">Facebook</span>
+                                    F </a>
+                                <a class="text-gray-400 hover:text-white" href="#"><span
+                                        class="sr-only">Instagram</span> I </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-12 border-t border-gray-700 pt-8 text-center text-sm text-gray-400">
+                        <p>&copy; <span id="year">2025</span> Gabriel the Brave. All rights reserved.</p>
+                    </div>
+                </div>
+            </footer>
+            <script>
+                document.getElementById('year').textContent = new Date().getFullYear();
+            </script>
+</div>
+</div>
+</div>
+</div>
+</body></html>

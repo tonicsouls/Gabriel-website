@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>News & Press Releases - Gabriel the Brave</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700;900&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b6cee",
+                        "background-light": "#FDFBF5",
+                        "background-dark": "#101622",
+                        "celestial-blue": "#2C3E50",
+                        "earthy-tone": "#A89B8C",
+                    },
+                    fontFamily: {
+                        "display": ["Noto Serif", "serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body>
+    <!-- Header -->
+    <header
+        class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-primary/20 dark:border-b-primary/30 px-4 sm:px-10 lg:px-20 py-3 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+        <div class="flex items-center gap-4 text-celestial-blue dark:text-background-light">
+            <a href="index.html" class="flex items-center gap-4 hover:opacity-80 transition-opacity">
+                <div class="size-6 text-primary">
+                    <span class="material-symbols-outlined !text-3xl">auto_stories</span>
+                </div>
+                <h2 class="text-xl font-bold leading-tight tracking-[-0.015em]">Gabriel the Brave</h2>
+            </a>
+        </div>
+        <div class="hidden md:flex flex-1 justify-end gap-8">
+            <div class="flex items-center gap-9">
+                <a class="text-celestial-blue dark:text-background-light text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary"
+                    href="index.html">Home</a>
+                <a class="text-celestial-blue dark:text-background-light text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary"
+                    href="news.html">Press</a>
+                <a class="text-celestial-blue dark:text-background-light text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary"
+                    href="activities.html">Activities</a>
+                <a class="text-celestial-blue dark:text-background-light text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary"
+                    href="about.html">About</a>
+            </div>
+            <a href="product.html"
+                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:opacity-90">
+                <span class="truncate">Buy the Book</span>
+            </a>
+        </div>
+        <div class="md:hidden">
+            <button class="text-celestial-blue dark:text-background-light"
+                onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu"
+        class="hidden md:hidden fixed inset-0 z-40 bg-background-light dark:bg-background-dark pt-20 px-4">
+        <div class="flex flex-col gap-4">
+            <a class="text-xl font-medium" href="index.html">Home</a>
+            <a class="text-xl font-medium" href="news.html">Press</a>
+            <a class="text-xl font-medium" href="activities.html">Activities</a>
+            <a class="text-xl font-medium" href="about.html">About</a>
+            <a href="product.html" class="btn btn-primary w-full text-center py-3 rounded-lg bg-primary text-white">Buy
+                the
+                Book</a>
+        </div>
+    </div>
+
+    <main>
+        <!-- Hero / Portal Header -->
+        <section class="relative min-h-[40vh] flex items-center justify-center overflow-hidden">
+            <!-- Background Image with Overlay -->
+            <div class="absolute inset-0 z-0">
+                <img src="assets/images/gabriel_the_brave_manger_scene.png" alt="Manger Scene"
+                    class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black/60"></div>
+            </div>
+
+            <!-- Content -->
+            <div class="container relative z-10 text-center px-4">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-4">
+                    A Story of Friendship, Faith, and Holiday Wonder
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto font-light">
+                    The official news and press hub for the #1 best-selling children's book.
+                </p>
+            </div>
+        </section>
+
+        <!-- Available At Banner -->
+        <section class="py-8 bg-white border-b border-gray-100">
+            <div class="container mx-auto px-4 text-center">
+                <p class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-6">Available Now At</p>
+                <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
+                    <a href="https://www.amazon.com/dp/B0G1GS6KV6" target="_blank" class="hover:scale-110 transition-transform">
+                        <img src="assets/images/logos/Amazon-Kindle-Emblem-1.png" alt="Amazon" class="h-12 md:h-16 object-contain">
+                    </a>
+                    <a href="https://www.walmart.com/ip/Gabriel-the-Brave-A-Christmas-Story-Hardcover/18508201922?classType=REGULAR&from=/search" target="_blank" class="hover:scale-110 transition-transform">
+                        <img src="assets/images/logos/Walmart_logo_(2008).svg.png" alt="Walmart" class="h-10 md:h-14 object-contain">
+                    </a>
+                    <a href="https://www.barnesandnoble.com/w/gabriel-the-brave-carter-amon/1144046868" target="_blank" class="hover:scale-110 transition-transform">
+                        <img src="assets/images/logos/64fa2b142af6b7c046a3a9e9_barnes and noble logo.png" alt="Barnes & Noble" class="h-10 md:h-14 object-contain">
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- News Grid -->
+        <section class="py-16 bg-background-light dark:bg-background-dark">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-display font-bold text-celestial-blue dark:text-white mb-10 text-center">Latest
+                    News</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Article: KidlioMag -->
+                    <article class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col">
+                        <div class="h-48 overflow-hidden">
+                            <img src="assets/images/press/Gabriel-front-4web.jpg" alt="KidlioMag Feature" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="bg-primary/10 text-primary text-xs font-bold px-2 py-1 rounded-full">Review</span>
+                                <span class="text-gray-400 text-xs">KidlioMag</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-celestial-blue dark:text-white mb-3 line-clamp-2">
+                                "A Heartwarming Tale of Courage"
+                            </h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-3 flex-grow">
+                                KidlioMag reviews Gabriel the Brave: "A beautiful story that reminds us all that even the smallest among us can do great things."
+                            </p>
+                            <a href="https://kidliomag.com/gabriel-the-brave-a-christmas-story-by-carter-amon/" target="_blank" class="inline-flex items-center text-primary font-bold hover:underline mt-auto">
+                                Read Review <span class="material-symbols-outlined text-sm ml-1">open_in_new</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Article 1: Friendship -->
+                    <article
+                        class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col">
+                        <div class="h-48 overflow-hidden">
+                            <img src="assets/images/us.png" alt="Authors Carter and Darryl"
+                                class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold text-celestial-blue dark:text-white mb-3 line-clamp-2">
+                                Best Friends of 33 Years Unite to Launch "Gabriel the Brave"
+                            </h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-3 flex-grow">
+                                It started with a simple question from a child looking at a Christmas tree: "Why do we
+                                put an angel at the top?"
+                            </p>
+                            <a href="news/press_release_friendship.html"
+                                class="inline-flex items-center text-primary font-bold hover:underline mt-auto">
+                                Read More <span class="material-symbols-outlined text-sm ml-1">arrow_forward</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Article 2: Bestseller -->
+                    <article
+                        class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col">
+                        <div class="h-48 overflow-hidden">
+                            <img src="assets/images/press/Gabriel-front-4web.jpg" alt="Gabriel the Brave Book Cover"
+                                class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold text-celestial-blue dark:text-white mb-3 line-clamp-2">
+                                "Gabriel the Brave" Hits #1 Best Seller
+                            </h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-3 flex-grow">
+                                The Christmas season has arrived early for lifelong friends and creators Carter Amon and
+                                Darryl Erby.
+                            </p>
+                            <a href="news/press_release_bestseller.html"
+                                class="inline-flex items-center text-primary font-bold hover:underline mt-auto">
+                                Read More <span class="material-symbols-outlined text-sm ml-1">arrow_forward</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Article 3: Magic -->
+                    <article
+                        class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col">
+                        <div class="h-48 overflow-hidden">
+                            <img src="assets/images/press/Gabriel-3D-open-wood-4web.jpg" alt="Open Book"
+                                class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold text-celestial-blue dark:text-white mb-3 line-clamp-2">
+                                "Like Unwrapping a Warm Blanket"
+                            </h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-3 flex-grow">
+                                As families prepare for the holidays, a new book born from a father's love is rekindling
+                                the magic of Christmas wonder.
+                            </p>
+                            <a href="news/press_release_magic.html"
+                                class="inline-flex items-center text-primary font-bold hover:underline mt-auto">
+                                Read More <span class="material-symbols-outlined text-sm ml-1">arrow_forward</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Article 4: Revised Final -->
+                    <article
+                        class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col">
+                        <div class="h-48 overflow-hidden">
+                            <img src="assets/images/press/Gabriel-3D-tilted-4web.jpg" alt="Gabriel the Brave Book"
+                                class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold text-celestial-blue dark:text-white mb-3 line-clamp-2">
+                                From Second Grade to Co-Authors
+                            </h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-3 flex-grow">
+                                TYMBR Books is proud to announce the launch of Gabriel the Brave: A Christmas Story.
+                            </p>
+                            <a href="news/press_release_revised_final.html"
+                                class="inline-flex items-center text-primary font-bold hover:underline mt-auto">
+                                Read More <span class="material-symbols-outlined text-sm ml-1">arrow_forward</span>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Press Kit Section -->
+        <section class="py-16 bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-10 gap-4">
+                    <div>
+                        <h2 class="text-3xl font-display font-bold text-celestial-blue dark:text-white mb-2">Press Kit
+                        </h2>
+                        <p class="text-gray-600 dark:text-gray-400">High-resolution assets for media use.</p>
+                    </div>
+                    <a href="#"
+                        class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-primary/90 shadow-sm transition-colors">
+                        <span class="material-symbols-outlined mr-2">download</span>
+                        Download Full Media Kit
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                    <!-- Image 1 -->
+                    <div
+                        class="aspect-square rounded-lg overflow-hidden bg-white shadow-sm border border-gray-100 group relative">
+                        <img src="assets/images/press/Gabriel-3D-layingdown-blue-4web.jpg" alt="Press Asset"
+                            class="w-full h-full object-contain p-2">
+                        <div
+                            class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <a href="assets/images/press/Gabriel-3D-layingdown-blue-4web.jpg" download
+                                class="text-white hover:text-primary">
+                                <span class="material-symbols-outlined text-3xl">download</span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Image 2 -->
+                    <div
+                        class="aspect-square rounded-lg overflow-hidden bg-white shadow-sm border border-gray-100 group relative">
+                        <img src="assets/images/press/Gabriel-3D-open-wood-4web.jpg" alt="Press Asset"
+                            class="w-full h-full object-contain p-2">
+                        <div
+                            class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <a href="assets/images/press/Gabriel-3D-open-wood-4web.jpg" download
+                                class="text-white hover:text-primary">
+                                <span class="material-symbols-outlined text-3xl">download</span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Image 3 -->
+                    <div
+                        class="aspect-square rounded-lg overflow-hidden bg-white shadow-sm border border-gray-100 group relative">
+                        <img src="assets/images/press/Gabriel-3D-standing-fromabove-4web.png" alt="Press Asset"
+                            class="w-full h-full object-contain p-2">
+                        <div
+                            class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <a href="assets/images/press/Gabriel-3D-standing-fromabove-4web.png" download
+                                class="text-white hover:text-primary">
+                                <span class="material-symbols-outlined text-3xl">download</span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Image 4 -->
+                    <div
+                        class="aspect-square rounded-lg overflow-hidden bg-white shadow-sm border border-gray-100 group relative">
+                        <img src="assets/images/press/Gabriel-3D-standing-front-back-sand-4web.jpg" alt="Press Asset"
+                            class="w-full h-full object-contain p-2">
+                        <div
+                            class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <a href="assets/images/press/Gabriel-3D-standing-front-back-sand-4web.jpg" download
+                                class="text-white hover:text-primary">
+                                <span class="material-symbols-outlined text-3xl">download</span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Image 5 -->
+                    <div
+                        class="aspect-square rounded-lg overflow-hidden bg-white shadow-sm border border-gray-100 group relative">
+                        <img src="assets/images/press/Gabriel-3D-tilted-4web.jpg" alt="Press Asset"
+                            class="w-full h-full object-contain p-2">
+                        <div
+                            class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <a href="assets/images/press/Gabriel-3D-tilted-4web.jpg" download
+                                class="text-white hover:text-primary">
+                                <span class="material-symbols-outlined text-3xl">download</span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Image 6 -->
+                    <div
+                        class="aspect-square rounded-lg overflow-hidden bg-white shadow-sm border border-gray-100 group relative">
+                        <img src="assets/images/press/Gabriel-front-4web.jpg" alt="Press Asset"
+                            class="w-full h-full object-contain p-2">
+                        <div
+                            class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <a href="assets/images/press/Gabriel-front-4web.jpg" download
+                                class="text-white hover:text-primary">
+                                <span class="material-symbols-outlined text-3xl">download</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-celestial-blue dark:bg-gray-900 text-background-light mt-16">
+        <div class="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="col-span-2 md:col-span-1">
+                    <div class="flex items-center gap-3">
+                        <div class="size-6 text-primary">
+                            <span class="material-symbols-outlined !text-3xl">auto_stories</span>
+                        </div>
+                        <h2 class="text-xl font-bold leading-tight">Gabriel the Brave</h2>
+                    </div>
+                    <div class="mt-4">
+                        <img src="assets/images/logo_tymbr_wht.png" alt="Tymbr Books"
+                            style="height: 30px; opacity: 0.8;">
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold tracking-wider uppercase text-gray-300">Navigation</h3>
+                    <ul class="mt-4 space-y-2">
+                        <li><a class="text-base text-gray-400 hover:text-white" href="index.html">Home</a></li>
+                        <li><a class="text-base text-gray-400 hover:text-white" href="about.html">About</a></li>
+                        <li><a class="text-base text-gray-400 hover:text-white" href="resources.html">Resources</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold tracking-wider uppercase text-gray-300">Connect</h3>
+                    <ul class="mt-4 space-y-2">
+                        <li><a class="text-base text-gray-400 hover:text-white" href="product.html">Buy the
+                                Book</a></li>
+                        <li><a class="text-base text-gray-400 hover:text-white" href="contact.html">Contact
+                                Us</a></li>
+                        <li><a class="text-base text-gray-400 hover:text-white"
+                                href="mailto:Carteramon@gabrielthebrave.com">Carteramon@gabrielthebrave.com</a>
+                        </li>
+                        <li><span class="text-base text-gray-400">(817) 876-9627</span></li>
+                        <li><span class="text-base text-gray-400">Dallas-Fort Worth, TX</span></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold tracking-wider uppercase text-gray-300">Follow Us</h3>
+                    <div class="flex mt-4 space-x-4">
+                        <a class="text-gray-400 hover:text-white" href="#"><span class="sr-only">Facebook</span>
+                            F </a>
+                        <a class="text-gray-400 hover:text-white" href="#"><span class="sr-only">Instagram</span> I </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-gray-700 pt-8 text-center text-sm text-gray-400">
+                <p>&copy; <span id="year">2025</span> Gabriel the Brave. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

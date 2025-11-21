@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Curriculum Builder - Gabriel the Brave</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="css/main.css">
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b6cee",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                        "celestial-blue": "#2C3E50",
+                        "earthy-tone": "#A89B8C",
+                    },
+                    fontFamily: {
+                        "display": ["Noto Serif", "serif"]
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Custom styles for builder */
+        .version-tab {
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .curriculum-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .curriculum-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .curriculum-card.selected {
+            border-color: #2b6cee;
+            background-color: #eff6ff;
+        }
+        
+        .curriculum-card.selected::after {
+            content: "ADDED";
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #2b6cee;
+            color: white;
+            font-size: 0.7rem;
+            font-weight: bold;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        .builder-panel {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(150%);
+            background: white;
+            padding: 1rem 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            z-index: 100;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 90%;
+            max-width: 700px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid #e2e8f0;
+        }
+
+        .builder-panel.active {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 200;
+            backdrop-filter: blur(4px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: white;
+            width: 95%;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow-y: auto;
+            border-radius: 1rem;
+            padding: 2rem;
+            position: relative;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+        }
+        
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-[#101622] dark:text-[#f6f6f8]">
+    <div class="relative min-h-screen w-full overflow-x-hidden">
+        <!-- Header -->
+        <header
+            class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-primary/20 dark:border-b-primary/30 px-4 sm:px-10 lg:px-20 py-3 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+            <div class="flex items-center gap-4 text-celestial-blue dark:text-background-light">
+                <a href="index.html" class="flex items-center gap-4 hover:opacity-80 transition-opacity">
+                    <div class="size-6 text-primary">
+                        <span class="material-symbols-outlined !text-3xl">auto_stories</span>
+                    </div>
+                    <h2 class="text-xl font-bold leading-tight tracking-[-0.015em]">Gabriel the Brave</h2>
+                </a>
+            </div>
+            <div class="hidden md:flex flex-1 justify-end gap-8">
+                <div class="flex items-center gap-9">
+                    <a class="text-celestial-blue dark:text-background-light text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary"
+                        href="index.html">Home</a>
+                    <a class="text-celestial-blue dark:text-background-light text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary"
+                        href="news.html">Press</a>
+                    <a class="text-celestial-blue dark:text-background-light text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary"
+                        href="activities.html">Activities</a>
+                    <a class="text-celestial-blue dark:text-background-light text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary"
+                        href="about.html">About</a>
+                </div>
+                <a href="product.html"
+                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:opacity-90">
+                    <span class="truncate">Buy the Book</span>
+                </a>
+            </div>
+            <div class="md:hidden">
+                <button class="text-celestial-blue dark:text-background-light"
+                    onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="hidden md:hidden fixed inset-0 z-40 bg-background-light dark:bg-background-dark pt-20 px-4">
+            <div class="flex flex-col gap-4">
+                <a class="text-xl font-medium" href="index.html">Home</a>
+                <a class="text-xl font-medium" href="news.html">Press</a>
+                <a class="text-xl font-medium" href="activities.html">Activities</a>
+                <a class="text-xl font-medium" href="about.html">About</a>
+                <a href="product.html"
+                    class="btn btn-primary w-full text-center py-3 rounded-lg bg-primary text-white">Buy the
+                    Book</a>
+            </div>
+        </div>
+
+        <main class="py-12 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-12">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4">Curriculum Marketplace</h1>
+                    <p class="text-lg text-slate-600 dark:text-slate-400">Build your custom lesson plan by selecting modules below.</p>
+                </div>
+
+                <!-- Version Tabs -->
+                <div class="flex justify-center gap-4 mb-8 flex-wrap">
+                    <button class="version-tab active" onclick="switchVersion('v1')" id="tab-v1"
+                        style="background-color: #2b6cee; color: white; border-color: #2b6cee;">Version 1: Original
+                        Plan</button>
+                    <button class="version-tab" onclick="switchVersion('v2')" id="tab-v2"
+                        style="background-color: white; color: #101622; border-color: #e2e8f0;">Version 2: Faith in
+                        Action</button>
+                    <button class="version-tab" onclick="switchVersion('v3')" id="tab-v3"
+                        style="background-color: white; color: #101622; border-color: #e2e8f0;">Version 3: Journey
+                        of Trust</button>
+                </div>
+
+                <!-- Version Description -->
+                <div id="version-desc" class="text-center mb-12 max-w-2xl mx-auto bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="text-xl font-bold text-primary mb-2">Version 1: God's Call & Shining Light</h3>
+                    <p>Focuses on overcoming personal doubt and the power of individual transformation.</p>
+                </div>
+
+                <!-- Cards Grid -->
+                <div id="curriculum-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Cards injected via JS -->
+                </div>
+            </div>
+        </main>
+
+        <!-- Builder Panel -->
+        <div id="builder-panel" class="builder-panel">
+            <div class="flex items-center gap-4">
+                <div class="bg-primary/10 p-3 rounded-full text-primary">
+                    <span class="material-symbols-outlined">inventory_2</span>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg m-0">Your Plan <span id="plan-count"
+                            class="bg-primary text-white rounded-full px-2 py-0.5 text-xs ml-2 align-middle">0</span></h4>
+                    <p class="text-sm text-slate-600 m-0">Lessons selected</p>
+                </div>
+            </div>
+            <div class="flex gap-3">
+                <button class="px-4 py-2 text-slate-600 hover:text-red-600 font-medium text-sm"
+                    onclick="clearPlan()">Clear All</button>
+                <button class="px-6 py-2.5 bg-primary text-white rounded-lg hover:bg-primary/90 font-bold shadow-md flex items-center gap-2"
+                    onclick="openPreview()">
+                    <span class="material-symbols-outlined text-sm">visibility</span>
+                    Review & Print
+                </button>
+            </div>
+        </div>
+
+        <!-- Preview Modal -->
+        <div id="preview-modal" class="modal-overlay">
+            <div class="modal-content">
+                <button onclick="closePreview()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600">
+                    <span class="material-symbols-outlined text-3xl">close</span>
+                </button>
+                
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-celestial-blue mb-2">Your Custom Lesson Plan</h2>
+                    <p class="text-slate-600">Review your selected lessons before printing.</p>
+                </div>
+
+                <div id="modal-list" class="space-y-6 mb-8">
+                    <!-- Selected lessons injected here -->
+                </div>
+
+                <div class="flex justify-center gap-4 pt-6 border-t border-slate-100">
+                    <button onclick="closePreview()" class="px-6 py-3 border border-slate-300 rounded-lg font-medium hover:bg-slate-50">
+                        Keep Editing
+                    </button>
+                    <button onclick="printPlan()" class="px-8 py-3 bg-primary text-white rounded-lg font-bold hover:bg-primary/90 shadow-lg flex items-center gap-2">
+                        <span class="material-symbols-outlined">print</span>
+                        Print / Save as PDF
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="bg-celestial-blue dark:bg-gray-900 text-background-light mt-16">
+            <div class="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <div class="col-span-2 md:col-span-1">
+                        <div class="flex items-center gap-3">
+                            <div class="size-6 text-primary">
+                                <span class="material-symbols-outlined !text-3xl">auto_stories</span>
+                            </div>
+                            <h2 class="text-xl font-bold leading-tight">Gabriel the Brave</h2>
+                        </div>
+                        <div class="mt-4">
+                            <img src="assets/images/logo_tymbr_wht.png" alt="Tymbr Books"
+                                style="height: 30px; opacity: 0.8;">
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-semibold tracking-wider uppercase text-gray-300">Navigation</h3>
+                        <ul class="mt-4 space-y-2">
+                            <li><a class="text-base text-gray-400 hover:text-white" href="index.html">Home</a></li>
+                            <li><a class="text-base text-gray-400 hover:text-white" href="about.html">About</a></li>
+                            <li><a class="text-base text-gray-400 hover:text-white"
+                                    href="resources.html">Resources</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-semibold tracking-wider uppercase text-gray-300">Connect</h3>
+                        <ul class="mt-4 space-y-2">
+                            <li><a class="text-base text-gray-400 hover:text-white" href="product.html">Buy the
+                                    Book</a></li>
+                            <li><a class="text-base text-gray-400 hover:text-white" href="contact.html">Contact
+                                    Us</a></li>
+                            <li><a class="text-base text-gray-400 hover:text-white"
+                                    href="mailto:Carteramon@gabrielthebrave.com">Carteramon@gabrielthebrave.com</a>
+                            </li>
+                            <li><span class="text-base text-gray-400">(817) 876-9627</span></li>
+                            <li><span class="text-base text-gray-400">Dallas-Fort Worth, TX</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-semibold tracking-wider uppercase text-gray-300">Follow Us</h3>
+                        <div class="flex mt-4 space-x-4">
+                            <a class="text-gray-400 hover:text-white" href="#"><span class="sr-only">Facebook</span>
+                                F </a>
+                            <a class="text-gray-400 hover:text-white" href="#"><span
+                                    class="sr-only">Instagram</span> I </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-12 border-t border-gray-700 pt-8 text-center text-sm text-gray-400">
+                    <p>&copy; <span id="year">2025</span> Gabriel the Brave. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+        <script>
+            document.getElementById('year').textContent = new Date().getFullYear();
+        </script>
+    </div>
+
+    <script>
+        // Lesson Data
+        const lessonData = {
+            // V1: ORIGINAL PLAN
+            "Original-T1-1": { title: "God's Special Jobs", core: "God gives us special jobs, and He helps us be brave.", obj: "Understand that God helps them when they feel scared or sad.", act: "Feeling Faces Activity (sad/brave) and practicing 'Yes, God!'." },
+            "Original-T1-2": { title: "Shining His Light", core: "God helps us shine His light to help others find Jesus.", obj: "Understand that God helps us shine His light, and we can help others find Jesus.", act: "My Light Drawing and 'Follow the Light' Movement Game." },
+            "Original-T2-1": { title: "Strength in Doubt", core: "God chooses us and gives us strength, even when we doubt ourselves (Jeremiah 1:6-8).", obj: "Identify with Gabriel's doubts, understand God's reassurance, and recognize that God uses imperfect people.", act: "'Me, Lord?' Discussion and 'God's Strength' Reflection Cards." },
+            "Original-T2-2": { title: "Empowered to Shine", core: "God empowers us to shine His light and share His love with others (Matthew 19:26).", obj: "Understand that God empowers us to be a light, even when we feel we can't, and to share the good news.", act: "'Through God, All Things Are Possible' Discussion and Light Action Plan." },
+            "Original-T3-1": { title: "The Weight of the Call", core: "God calls us to purpose, and His strength is made perfect in our weaknesses (2 Cor. 12:9-10).", obj: "Analyze the nature of divine calling and personal doubt, and apply concepts to personal purpose and faith journeys.", act: "Facilitated Discussion: 'The Weight of the Call' & Personal Reflection on calling and doubt." },
+            "Original-T3-2": { title: "Power in Weakness", core: "Empowered by grace, we are called to be a light in the world (Matthew 5:14-16).", obj: "Explore the theological implications of God's power in human weakness, and analyze the call to be 'light' in a complex world.", act: "Facilitated Discussion: 'Power in Weakness, Light in Darkness' & Action Planning for accountability." },
+
+            // V2: FAITH IN ACTION
+            "Action-T1-1": { title: "Helping Hands", core: "God gives us special jobs to help and serve others (Mark 10:45).", obj: "Understand that God wants us to help others, and we can show God's love through our actions.", act: "'Helping Hands' Activity (tracing hands) and Service Role-Play." },
+            "Action-T1-2": { title: "Kindness Rocks", core: "Our kind actions are like a light that shows God's love to others (Matthew 5:16).", obj: "Understand that their kind actions can make others happy and show God's love.", act: "'Kindness Rocks!' Activity (or drawings) and practicing 'Shine Your Smile'." },
+            "Action-T2-1": { title: "Faith in Motion", core: "Our faith leads to action; serving others shows God's love (Luke 1:39-45).", obj: "Recognize biblical examples of service, identify personal opportunities to serve, and connect actions of service to God's love.", act: "'Service Scavenger Hunt' and 'My Circle of Service' Brainstorm." },
+            "Action-T2-2": { title: "Ripple Effect", core: "We are called to be a light, and our actions can powerfully guide others (Acts 1:8).", obj: "Connect personal actions to the idea of being a 'light,' and recognize the potential for their lives to positively influence others.", act: "'Ripple Effect' Discussion and 'Witness Walk' Action Planning." },
+            "Action-T3-1": { title: "Holistic Service", core: "Our faith compels us to courageously serve others, aligning with the call to Social Holiness (Matt. 25:35-40).", obj: "Explore the call to holistic service, analyze the impact of faith-driven action, and identify personal/communal service opportunities.", act: "Facilitated Discussion: 'Faith in Motion' & Identifying Personal Service opportunities." },
+            "Action-T3-2": { title: "Strategic Witness", core: "We are strategic and collective lights, using God's power for transformative witness (Micah 6:8).", obj: "Analyze the concept of being 'light for the world' in action, and develop strategies for intentional witness and social action.", act: "'Light Projects' Brainstorm (justice/witness) and Action Project Brainstorm." },
+
+            // V3: JOURNEY OF TRUST
+            "Trust-T1-1": { title: "Trust Walk", core: "We can trust God because He is always with us and keeps His promises (Psalm 56:3).", obj: "Understand that God is always with them, even when they feel scared, and they can trust His promises.", act: "'Trust Walk' (guided/blindfolded) and 'God's Promises' Cloud craft." },
+            "Trust-T1-2": { title: "Keep Trying", core: "God helps us keep trying and gives us strength when things are hard (Phil. 4:13).", obj: "Understand that God helps them when things are hard, and He gives them strength to keep trying.", act: "'Keep Trying' Obstacle Course and 'God's Strength' Handprint." },
+            "Trust-T2-1": { title: "Faithful Foundation", core: "God is faithful and trustworthy, even when we have doubts (Luke 1:37).", obj: "Recognize that doubt is a normal part of faith, and God's faithfulness provides a foundation for trust.", act: "'Doubt vs. Trust' Scenario Cards and 'God's Faithfulness Chain' activity." },
+            "Trust-T2-2": { title: "Assurance & Strength", core: "God gives us assurance and strength to persist in our faith journey (Isaiah 41:10).", obj: "Understand the importance of persistence in faith, recognize God's assurance in challenging times, and apply this to personal struggles.", act: "'Persistence Puzzle' and 'God's Assurance Box' (writing worry vs. truth)." },
+            "Trust-T3-1": { title: "Landscape of Doubt", core: "Trusting God is an ongoing journey, and doubt, when engaged with, leads to resilient faith (James 1:5-8).", obj: "Analyze the theological nature of doubt, explore biblical and personal narratives of trust, and develop practices for cultivating resilient trust in God.", act: "Facilitated Discussion: 'The Landscape of Doubt and Trust' & Personal Reflection on Trust Practices." },
+            "Trust-T3-2": { title: "Resilience in Faith", core: "The journey of faith requires persistence, but God's assurance empowers us to endure (Hebrews 12:1-3).", obj: "Analyze the role of persistence and divine intervention in faith, cultivate resilience in the face of spiritual and life challenges, and deepen enduring trust in God's ultimate plan.", act: "Facilitated Discussion: 'Resilience in the Journey of Faith' & 'Trust Anchor' Reflection." },
+        };
+
+        const versions = {
+            v1: { title: "Version 1: God's Call & Shining Light", desc: "Focuses on overcoming personal doubt and the power of individual transformation.", plan: "Original" },
+            v2: { title: "Version 2: Faith in Action", desc: "Emphasizes service, works of mercy, and social action.", plan: "Action" },
+            v3: { title: "Version 3: Journey of Trust", desc: "Guides participants through doubt, emphasizes resilient trust, and uses persistence.", plan: "Trust" }
+        };
+
+        const tiers = [
+            { id: 'T1', name: 'Pre-K - 2nd Grade' },
+            { id: 'T2', name: '3rd Grade & Up' },
+            { id: 'T3', name: 'Young Adults' }
+        ];
+
+        let selectedLessons = new Set();
+        let currentVersion = 'v1';
+
+        function switchVersion(versionKey) {
+            currentVersion = versionKey;
+            const v = versions[versionKey];
+
+            // Update Tabs
+            document.querySelectorAll('.version-tab').forEach(btn => {
+                btn.style.backgroundColor = 'white';
+                btn.style.color = '#101622';
+                btn.style.borderColor = '#e2e8f0';
+            });
+            const activeTab = document.getElementById('tab-' + versionKey);
+            activeTab.style.backgroundColor = '#2b6cee';
+            activeTab.style.color = 'white';
+            activeTab.style.borderColor = '#2b6cee';
+
+            // Update Description
+            document.getElementById('version-desc').innerHTML = `
+                <h3 class="text-xl font-bold text-primary mb-2">${v.title}</h3>
+                <p>${v.desc}</p>
+            `;
+
+            renderCards();
+        }
+
+        function renderCards() {
+            const v = versions[currentVersion];
+            const grid = document.getElementById('curriculum-grid');
+            grid.innerHTML = '';
+
+            tiers.forEach(tier => {
+                for (let week = 1; week <= 2; week++) {
+                    const key = `${v.plan}-${tier.id}-${week}`;
+                    const data = lessonData[key];
+                    if (data) {
+                        const isSelected = selectedLessons.has(key);
+                        const card = document.createElement('div');
+                        card.className = `curriculum-card ${isSelected ? 'selected' : ''}`;
+                        card.onclick = (e) => {
+                            // Prevent triggering if clicking button directly (handled by button click)
+                            if(!e.target.closest('button')) toggleLesson(key);
+                        };
+                        
+                        card.innerHTML = `
+                            <div class="bg-slate-50 p-4 border-b border-slate-100 flex justify-between items-center">
+                                <span class="text-xs font-bold uppercase tracking-wider text-slate-500">${tier.name} | Week ${week}</span>
+                                ${isSelected ? '<span class="material-symbols-outlined text-primary">check_circle</span>' : ''}
+                            </div>
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h4 class="font-bold text-xl mb-3 text-celestial-blue">${data.title}</h4>
+                                <p class="text-sm text-slate-600 mb-6 flex-grow leading-relaxed">${data.core}</p>
+                                
+                                <div class="space-y-3 mb-6">
+                                    <div class="flex gap-2 text-xs">
+                                        <span class="font-bold text-slate-700 min-w-[60px]">Objective:</span>
+                                        <span class="text-slate-600">${data.obj}</span>
+                                    </div>
+                                    <div class="flex gap-2 text-xs">
+                                        <span class="font-bold text-slate-700 min-w-[60px]">Activity:</span>
+                                        <span class="text-slate-600">${data.act}</span>
+                                    </div>
+                                </div>
+
+                                <button onclick="toggleLesson('${key}')" class="w-full py-2.5 rounded-lg font-bold text-sm transition-colors ${isSelected ? 'bg-red-50 text-red-600 hover:bg-red-100' : 'bg-primary text-white hover:bg-primary/90'}">
+                                    ${isSelected ? 'Remove from Plan' : 'Add to Plan'}
+                                </button>
+                            </div>
+                        `;
+                        grid.appendChild(card);
+                    }
+                }
+            });
+        }
+
+        function toggleLesson(key) {
+            if (selectedLessons.has(key)) {
+                selectedLessons.delete(key);
+            } else {
+                selectedLessons.add(key);
+            }
+            renderCards();
+            updateBuilderPanel();
+        }
+
+        function updateBuilderPanel() {
+            const panel = document.getElementById('builder-panel');
+            const count = document.getElementById('plan-count');
+            count.innerText = selectedLessons.size;
+
+            if (selectedLessons.size > 0) {
+                panel.classList.add('active');
+            } else {
+                panel.classList.remove('active');
+            }
+        }
+
+        function clearPlan() {
+            if(confirm('Are you sure you want to clear your lesson plan?')) {
+                selectedLessons.clear();
+                renderCards();
+                updateBuilderPanel();
+                closePreview();
+            }
+        }
+
+        function openPreview() {
+            const modal = document.getElementById('preview-modal');
+            const list = document.getElementById('modal-list');
+            list.innerHTML = '';
+
+            if (selectedLessons.size === 0) return;
+
+            selectedLessons.forEach(key => {
+                const data = lessonData[key];
+                // Parse key: Plan-Tier-Week
+                const parts = key.split('-');
+                const tierId = parts[1];
+                const week = parts[2];
+                const tierName = tiers.find(t => t.id === tierId)?.name || tierId;
+
+                const item = document.createElement('div');
+                item.className = 'bg-slate-50 p-6 rounded-lg border border-slate-200';
+                item.innerHTML = `
+                    <div class="flex justify-between items-start mb-2">
+                        <span class="text-xs font-bold uppercase tracking-wider text-slate-500">${tierName} | Week ${week}</span>
+                        <button onclick="toggleLesson('${key}'); openPreview();" class="text-red-500 hover:text-red-700 text-sm font-medium">Remove</button>
+                    </div>
+                    <h3 class="text-xl font-bold text-celestial-blue mb-2">${data.title}</h3>
+                    <p class="text-slate-700 italic mb-4">"${data.core}"</p>
+                    <div class="grid md:grid-cols-2 gap-4 text-sm">
+                        <div><span class="font-bold">Objective:</span> ${data.obj}</div>
+                        <div><span class="font-bold">Activity:</span> ${data.act}</div>
+                    </div>
+                `;
+                list.appendChild(item);
+            });
+
+            modal.classList.add('active');
+        }
+
+        function closePreview() {
+            document.getElementById('preview-modal').classList.remove('active');
+        }
+
+        function printPlan() {
+            if (selectedLessons.size === 0) return;
+            
+            let content = `
+                <html>
+                <head>
+                    <title>My Gabriel the Brave Lesson Plan</title>
+                    <style>
+                        body { font-family: 'Georgia', serif; padding: 40px; color: #101622; max-width: 800px; margin: 0 auto; }
+                        h1 { color: #2b6cee; border-bottom: 2px solid #2b6cee; padding-bottom: 20px; margin-bottom: 30px; }
+                        .lesson-item { margin-bottom: 30px; page-break-inside: avoid; border: 1px solid #e2e8f0; padding: 25px; border-radius: 8px; background: #f8fafc; }
+                        .meta { color: #64748b; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; font-weight: bold; }
+                        h2 { margin-top: 0; margin-bottom: 10px; font-size: 1.5rem; }
+                        .core { font-style: italic; color: #475569; margin-bottom: 20px; font-size: 1.1rem; border-left: 3px solid #cbd5e1; padding-left: 15px; }
+                        .section { margin-top: 10px; line-height: 1.5; }
+                        .label { font-weight: bold; color: #2b6cee; }
+                        .footer { margin-top: 50px; text-align: center; font-size: 0.8rem; color: #94a3b8; border-top: 1px solid #e2e8f0; padding-top: 20px; }
+                        @media print {
+                            body { padding: 0; }
+                            .lesson-item { border: 1px solid #ccc; }
+                        }
+                    </style>
+                </head>
+                <body>
+                    <h1>My Lesson Plan</h1>
+                    <div class="lessons">
+            `;
+
+            selectedLessons.forEach(key => {
+                const lesson = lessonData[key];
+                const parts = key.split('-');
+                const tierId = parts[1];
+                const week = parts[2];
+                const tierName = tiers.find(t => t.id === tierId)?.name || tierId;
+                
+                content += `
+                    <div class="lesson-item">
+                        <div class="meta">${tierName} | Week ${week}</div>
+                        <h2>${lesson.title}</h2>
+                        <p class="core">"${lesson.core}"</p>
+                        <div class="section"><span class="label">Objective:</span> ${lesson.obj}</div>
+                        <div class="section"><span class="label">Activity:</span> ${lesson.act}</div>
+                    </div>
+                `;
+            });
+
+            content += `
+                    </div>
+                    <div class="footer">
+                        Generated from Gabriel the Brave Curriculum Builder on ${new Date().toLocaleDateString()}
+                    </div>
+                    <script>
+                        window.onload = function() { window.print(); }
+                    <\/script>
+                </body>
+                </html>
+            `;
+
+            const win = window.open('', '_blank');
+            win.document.write(content);
+            win.document.close();
+        }
+
+        // Initialize
+        switchVersion('v1');
+    </script>
+</body>
+
+</html>

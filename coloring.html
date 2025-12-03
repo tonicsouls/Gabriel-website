@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Coloring Pages - Gabriel the Brave</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700;900&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b6cee",
+                        "background-light": "#FDFBF5",
+                        "background-dark": "#101622",
+                        "celestial-blue": "#2C3E50",
+                        "earthy-tone": "#A89B8C",
+                    },
+                    fontFamily: {
+                        "display": ["Noto Serif", "serif"]
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark">
+    <!-- Header -->
+    <header
+        class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-primary/20 dark:border-b-primary/30 px-4 sm:px-10 lg:px-20 py-3 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+        <div class="flex items-center gap-4 text-celestial-blue dark:text-background-light">
+            <a href="index.html" class="flex items-center gap-4 hover:opacity-80 transition-opacity">
+                <div class="size-6 text-primary">
+                    <span class="material-symbols-outlined !text-3xl">auto_stories</span>
+                </div>
+                <h2 class="text-xl font-bold leading-tight tracking-[-0.015em]">Gabriel the Brave</h2>
+            </a>
+        </div>
+        <div class="hidden md:flex flex-1 justify-end gap-8">
+            <div class="flex items-center gap-9">
+                <a class="text-celestial-blue dark:text-background-light text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary"
+                    href="index.html">Home</a>
+                <a class="text-celestial-blue dark:text-background-light text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary"
+                    href="news.html">Press</a>
+                <a class="text-celestial-blue dark:text-background-light text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary"
+                    href="resources.html">Resources</a>
+                <a class="text-celestial-blue dark:text-background-light text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary"
+                    href="about.html">About</a>
+            </div>
+            <a href="https://bookshop.org/p/books/gabriel-the-brave-a-christmas-story-carter-amon/b65a7f972e136900?ean=9798218831301&next=t" target="_blank"
+                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:opacity-90">
+                <span class="truncate">Buy the Book</span>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="relative min-h-[40vh] flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img src="assets/images/gabriel_the_brave_page_5_2.png" alt="Coloring Hero" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black/50"></div>
+            </div>
+            <div class="container relative z-10 text-center px-4">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-4">Coloring Pages</h1>
+                <p class="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto font-light">
+                    Download and print these coloring pages for hours of creative fun.
+                </p>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="py-16 bg-background-light dark:bg-background-dark">
+            <div class="container mx-auto px-4">
+                <div id="gallery-grid" class="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+                    <!-- Images will be injected here by JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Gallery Data
+        const galleryImages = [
+            { src: "assets/images/coloring/coloring_page_1.png", title: "Coloring Page 1" },
+            { src: "assets/images/coloring/coloring_page_2.png", title: "Coloring Page 2" },
+            { src: "assets/images/coloring/coloring_page_3.png", title: "Coloring Page 3" },
+            { src: "assets/images/coloring/coloring_page_4.png", title: "Coloring Page 4" },
+            { src: "assets/images/coloring/coloring_page_5.png", title: "Coloring Page 5" },
+            { src: "assets/images/coloring/coloring_page_6.png", title: "Coloring Page 6" },
+            { src: "assets/images/coloring/coloring_page_7.png", title: "Coloring Page 7" },
+            { src: "assets/images/coloring/coloring_page_8.png", title: "Coloring Page 8" },
+            { src: "assets/images/coloring/coloring_page_9.png", title: "Coloring Page 9" },
+            { src: "assets/images/coloring/coloring_page_10.png", title: "Coloring Page 10" },
+            { src: "assets/images/coloring/coloring_page_11.png", title: "Coloring Page 11" },
+            { src: "assets/images/coloring/coloring_page_12.png", title: "Coloring Page 12" },
+            { src: "assets/images/coloring/coloring_page_13.png", title: "Coloring Page 13" },
+            { src: "assets/images/coloring/coloring_page_14.png", title: "Coloring Page 14" },
+            { src: "assets/images/coloring/coloring_page_15.png", title: "Coloring Page 15" }
+        ];
+
+        function renderGallery() {
+            const grid = document.getElementById('gallery-grid');
+            grid.innerHTML = '';
+
+            galleryImages.forEach(img => {
+                const item = document.createElement('div');
+                item.className = 'break-inside-avoid group relative rounded-xl overflow-hidden shadow-lg bg-white border border-gray-100 mb-6';
+                item.innerHTML = `
+                    <img src="${img.src}" alt="${img.title}" class="w-full h-auto">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+                        <a href="${img.src}" download="${img.title.replace(/ /g, '_')}.png" class="p-3 bg-white rounded-full text-primary hover:scale-110 transition-transform shadow-lg" title="Download">
+                            <span class="material-symbols-outlined">download</span>
+                        </a>
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+                        <span class="text-white font-medium">${img.title}</span>
+                    </div>
+                `;
+                grid.appendChild(item);
+            });
+        }
+
+        // Initial Render
+        renderGallery();
+    </script>
+</body>
+</html>

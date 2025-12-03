@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Coming Soon - Gabriel the Brave</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700;900&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { "primary": "#2b6cee" },
+                    fontFamily: { "display": ["Noto Serif", "serif"] },
+                },
+            },
+        }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="sticky top-0 z-50 flex items-center justify-between px-4 sm:px-10 lg:px-20 py-3 bg-white/80 backdrop-blur-sm">
+        <a href="index.html" class="flex items-center gap-4">
+            <div class="size-6 text-primary"><span class="material-symbols-outlined !text-3xl">auto_stories</span></div>
+            <h2 class="text-xl font-bold">Gabriel the Brave</h2>
+        </a>
+        <div class="flex items-center gap-8">
+            <a href="index.html">Home</a>
+            <a href="news.html">Press</a>
+            <a href="resources.html">Resources</a>
+            <a href="about.html">About</a>
+            <a href="https://bookshop.org/p/books/gabriel-the-brave-a-christmas-story-carter-amon/b65a7f972e136900?ean=9798218831301&next=t" target="_blank" class="px-4 py-2 bg-primary text-white rounded-lg">Buy the Book</a>
+        </div>
+    </header>
+    <main class="text-center py-20">
+        <h1 class="text-4xl font-bold">Content Coming Soon</h1>
+        <p class="mt-4 text-lg">This resource is currently being developed. Please check back later!</p>
+        <a href="resources.html" class="mt-8 inline-block px-6 py-3 bg-primary text-white rounded-lg">Back to Resources</a>
+    </main>
+</body>
+</html>
